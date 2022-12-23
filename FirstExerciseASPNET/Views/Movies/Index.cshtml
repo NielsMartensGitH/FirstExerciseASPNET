@@ -1,0 +1,34 @@
+﻿@model FirstExerciseASPNET.ViewModels.MovieViewModel
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Movies</h2>
+@if (Model.Movies.Count == 0)
+{
+    <text>There are no movies here.</text>
+}
+else
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var i = 1;
+            }
+            @foreach (var movie in Model.Movies)
+            {
+                <tr class="warning">
+                    <td>@i</td>
+                    <td>@movie.Name</td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+}
